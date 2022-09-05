@@ -4,24 +4,21 @@ import {client} from '../lib/client';
 import {Product, FooterBanner, HeroBanner}
 from '../components';
 
-const Home = ({products, bannerData}) => {
-  return (
-    <>
-      <HeroBanner heroBanner={bannerData.length & bannerData[0]}/>
+const Home = ({ products, bannerData }) => (
+  <div>
+    <HeroBanner heroBanner={bannerData.length && bannerData[0]}  />
+    <div className="products-heading">
+      <h2>Best Selling Products</h2>
+      <p>Variety of Speakers and Headphones</p>
+    </div>
 
-      <div className="products-heading">
-         <h2>Best Selling Products</h2>
-         <p>Variety of Speakers</p>
-      </div>
-      <div className="products-container">
-        {products?.map((product) => <Product key=
-        {product_id} product={product} />)}
-      </div>
+    <div className="products-container">
+      {products?.map((product) => <Product key={product._id} product={product} />)}
+    </div>
 
-      <FooterBanner footerBanner={bannerData && bannerData[0]}/>
-    </>
-  )
-}
+    <FooterBanner footerBanner={bannerData && bannerData[0]} />
+  </div>
+);
 
 export const getServerSideProps = async () => {
   const query = '*[_type == "product"]';

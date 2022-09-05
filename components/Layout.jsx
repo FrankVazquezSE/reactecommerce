@@ -1,5 +1,5 @@
 import React from 'react'
-import Head from 'nedxt/head';
+import Head from 'next/head';
 import Navbar from './Navbar';
 import Footer from './Footer';
 
@@ -8,7 +8,7 @@ const Layout = ({ children }) => {
   return (
     <div className="layout">
       <Head>
-        <title>React Ecommerce Store</title>
+        <title>Beats Store</title>
       </Head>
       <header>
         <Navbar />
